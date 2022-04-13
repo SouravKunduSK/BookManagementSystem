@@ -1,0 +1,130 @@
+﻿@model BookManagementSystem.Models.Book
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">All Books</a>
+        </li>
+        <li class="breadcrumb-item active">Add books</li>
+
+    </ol>
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Add New Book
+        </div>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Create", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <h3 style="color:red;">@TempData["msg"]</h3>
+            @Html.HiddenFor(model => model.BookId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.ReadingId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.LendStatus, new { htmlAttributes = new { @class = "form-control" } })
+
+
+
+
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.ProductImage, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        <h6>Choose Book Image</h6>
+                        <input type="file" name="Image" id="file" style="width: 100%;" />
+                        @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        <h6>Book Name</h6>
+                        @Html.EditorFor(model => model.BookName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    @if (ViewBag.AuthorList != null)
+                    {
+                        <div class="col-md-10">
+                            <h6>Select Author</h6>
+                            @Html.DropDownListFor(model => model.AuthorId, ViewBag.AuthorList as SelectList, "-- Select Author ---", new { @class = "form-control" })
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    @if (ViewBag.CategoryList != null)
+                    {
+                        <div class="col-md-10">
+                            <h6>Select Category</h6>
+                            @Html.DropDownListFor(model => model.CategoryId, ViewBag.CategoryList as SelectList, "-- Select Category ---", new { @class = "form-control" })
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @if (ViewBag.SatList != null)
+                    {
+                        <div class="col-md-10">
+                            <h6>Book Status</h6>
+                            @Html.DropDownListFor(model => model.BookStatusId, ViewBag.SatList as SelectList, "-- Select Status ---", new { @class = "form-control" })
+                        </div>
+                    }
+                </div>
+            </div>
+
+            @*<div class="col-md-6">
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        <h6>Buying Date</h6>
+                        @Html.EditorFor(model => model.BuyingDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                        @Html.ValidationMessageFor(model => model.BuyingDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+            <div class="col-md-6">
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        <h6>Buying Date</h6>
+
+                        <input class="form-control" asp-for="BuyingDate" type="date" name="BuyingDate" />
+                        @Html.ValidationMessageFor(model => model.BuyingDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="col-md-10">
+                    <a onclick="window.history.back();" class="btn btn-danger">Cancel</a>
+                    <input type="submit" class="btn btn-success" value="Save" />
+
+                </div>
+            </div>
+        }
+    </div>
+</div>

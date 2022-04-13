@@ -1,0 +1,98 @@
+﻿@model BookManagementSystem.Models.Book
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item ">Lended Books</li>
+        <li class="breadcrumb-item active">Edit Lended Books</li>
+
+
+    </ol>
+    <!-- DataTables Example -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-people-carry"></i>
+            Edit Lended Books Details
+
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Edit", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.HiddenFor(m => m.BookId)
+                @Html.HiddenFor(m => m.Photo)
+                @Html.HiddenFor(m => m.AuthorId)
+                @Html.HiddenFor(m => m.CategoryId)
+                @Html.HiddenFor(m => m.BuyingDate)
+                @Html.HiddenFor(m => m.ReadingId)
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @if (ViewBag.SatList != null)
+                        {
+                            <div class="col-md-10">
+                                <h6>Lend Status</h6>
+                                @Html.DropDownListFor(model => model.BookStatusId, ViewBag.SatList as SelectList, "-- Select Status ---", new { @class = "form-control" })
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <h6>Book Name</h6>
+                            @Html.TextBoxFor(m => m.BookName, new { @class = "form-control", placeholder = "Enter Book Name", required = "required", autofocus = "autofocus" })
+                            @Html.ValidationMessageFor(m => m.BookName, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <h6>Borrower Name</h6>
+                            @Html.TextBoxFor(m => m.BorrowerName, new { @class = "form-control", placeholder = "Enter Borrower Name", required = "required", autofocus = "autofocus" })
+                            @Html.ValidationMessageFor(m => m.BorrowerName, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <h6>Lend Date</h6>
+                            @Html.TextBoxFor(m => m.BorrowDate, new { @class = "form-control datepicker", placeholder = "Enter Date", required = "required", autofocus = "autofocus" })
+                            @Html.ValidationMessageFor(m => m.BorrowDate, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <a onclick="window.history.back();" class="btn btn-danger">Cancel</a>
+                            <input type="submit" class="btn btn-primary" value="Update" />
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            }
+        </div>
+    </div>
+</div>
+

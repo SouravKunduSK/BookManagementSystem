@@ -1,0 +1,159 @@
+﻿@model BookManagementSystem.Models.Book
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">All Books</a>
+        </li>
+        @*<li class="breadcrumb-item ">All Authors</li>*@
+        <li class="breadcrumb-item active">Edit Book Details</li>
+
+
+    </ol>
+    <!-- DataTables Example -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-book-open"></i>
+            Edit Book Details
+
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Edit", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.HiddenFor(m => m.BookId)
+
+
+                <div class="col-md-6">
+                    <h3><strong>Profile Picture:</strong></h3><hr />
+                    <div class="form-group">
+                        @*<input type="hidden" name="id" value="@Model.UserID" />*@
+                        <div class="col-md-10">
+                            <h6>Book Image</h6>
+                            <a><img width="200px" , src="~/Uploads/@Model.Photo" style="height:200px"></a>
+                            <div class="panel-body">
+                                <h4>Choose Book Image</h4>
+                                <input type="file" name="Image" id="file" style="width: 100%;" />
+                                @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            <h6>Book Name</h6>
+                            @Html.EditorFor(model => model.BookName, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                            @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @if (ViewBag.AuthorList != null)
+                        {
+                            <div class="col-md-10">
+                                <h6>Select Author</h6>
+                                @Html.DropDownListFor(model => model.AuthorId, ViewBag.AuthorList as SelectList, "-- Select Author ---", new { @class = "form-control" })
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @if (ViewBag.CategoryList != null)
+                        {
+                            <div class="col-md-10">
+                                <h6>Select Category</h6>
+                                @Html.DropDownListFor(model => model.CategoryId, ViewBag.CategoryList as SelectList, "-- Select Category ---", new { @class = "form-control" })
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @if (ViewBag.ReadList != null)
+                        {
+                            <div class="col-md-10">
+                                <h6>Reading Status</h6>
+                                @Html.DropDownListFor(model => model.ReadingId, ViewBag.ReadList as SelectList, "-- Select Status ---", new { @class = "form-control" })
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @if (ViewBag.SatList != null)
+                        {
+                            <div class="col-md-10">
+                                <h6>Book Status</h6>
+                                @Html.DropDownListFor(model => model.BookStatusId, ViewBag.SatList as SelectList, "-- Select Status ---", new { @class = "form-control" })
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+                @*<div class="col-md-6">
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        <h6>Buying Date</h6>
+
+                        <input class="form-control" asp-for="BuyingDate" type="date" name="BuyingDate" />
+                        @Html.ValidationMessageFor(model => model.BuyingDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            <h6>Buying Date</h6>
+                            @Html.EditorFor(model => model.BuyingDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                            @Html.ValidationMessageFor(model => model.BuyingDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+
+                            <a onclick="window.history.back();" class="btn btn-danger">Cancel</a>
+                            <input type="submit" class="btn btn-primary" value="Update" />
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+        </div>
+            </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model BookManagementSystem.Models.Author
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">Authors</a>
+        </li>
+        <li class="breadcrumb-item ">All Authors</li>
+        <li class="breadcrumb-item active">Edit Author's Name</li>
+
+
+    </ol>
+    <!-- DataTables Example -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-people-carry"></i>
+            Edit Author's Name
+
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Edit", "Author", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.HiddenFor(m => m.AuthorId)
+
+                <div class="form-group">
+                    <label class="control-label">Author's Name</label>
+
+                    @Html.TextBoxFor(m => m.AuthorName, new { @class = "form-control", placeholder = "Enter Author Name", required = "required", autofocus = "autofocus" })
+                    @Html.ValidationMessageFor(m => m.AuthorName, "", new { @class = "text-danger" })
+                </div>
+
+                <a onclick="window.history.back();" class="btn btn-danger">Cancel</a>
+                <input type="submit" class="btn btn-primary" value="Update" />
+            }
+        </div>
+    </div>
+</div>
