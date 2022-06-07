@@ -154,44 +154,44 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Author.cs">
-      <DependentUpon>BookManagementModel.tt</DependentUpon>
+      <DependentUpon>BookManagementDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Book.cs">
-      <DependentUpon>BookManagementModel.tt</DependentUpon>
+      <DependentUpon>BookManagementDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BookManagementModel.Context.cs">
+    <Compile Include="Models\BookManagementDatabase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BookManagementModel.Context.tt</DependentUpon>
+      <DependentUpon>BookManagementDatabase.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BookManagementModel.cs">
+    <Compile Include="Models\BookManagementDatabase.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BookManagementModel.tt</DependentUpon>
+      <DependentUpon>BookManagementDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BookManagementModel.Designer.cs">
+    <Compile Include="Models\BookManagementDatabase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BookManagementModel.edmx</DependentUpon>
+      <DependentUpon>BookManagementDatabase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\BookStatu.cs">
-      <DependentUpon>BookManagementModel.tt</DependentUpon>
+      <DependentUpon>BookManagementDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Borrow.cs">
-      <DependentUpon>BookManagementModel.tt</DependentUpon>
+      <DependentUpon>BookManagementDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
-      <DependentUpon>BookManagementModel.tt</DependentUpon>
+      <DependentUpon>BookManagementDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Crypto.cs" />
     <Compile Include="Models\Reading.cs">
-      <DependentUpon>BookManagementModel.tt</DependentUpon>
+      <DependentUpon>BookManagementDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ReadingList.cs">
-      <DependentUpon>BookManagementModel.tt</DependentUpon>
+      <DependentUpon>BookManagementDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>BookManagementModel.tt</DependentUpon>
+      <DependentUpon>BookManagementDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -246,24 +246,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\BookManagementModel.Context.tt">
+    <Content Include="Models\BookManagementDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BookManagementModel.Context.cs</LastGenOutput>
-      <DependentUpon>BookManagementModel.edmx</DependentUpon>
+      <DependentUpon>BookManagementDatabase.edmx</DependentUpon>
+      <LastGenOutput>BookManagementDatabase.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\BookManagementModel.tt">
+    <Content Include="Models\BookManagementDatabase.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BookManagementModel.edmx</DependentUpon>
-      <LastGenOutput>BookManagementModel.cs</LastGenOutput>
+      <DependentUpon>BookManagementDatabase.edmx</DependentUpon>
+      <LastGenOutput>BookManagementDatabase.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\BookManagementModel.edmx.sql" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\BookManagementModel.edmx">
+    <EntityDeploy Include="Models\BookManagementDatabase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BookManagementModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>BookManagementDatabase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\BookManagementModel.edmx.diagram">
-      <DependentUpon>BookManagementModel.edmx</DependentUpon>
+    <Content Include="Models\BookManagementDatabase.edmx.diagram">
+      <DependentUpon>BookManagementDatabase.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\BookManagementSystemSk - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />

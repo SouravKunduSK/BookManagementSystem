@@ -11,8 +11,7 @@ namespace BookManagementSystem.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Book
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -31,20 +30,17 @@ namespace BookManagementSystem.Models
         public string Photo { get; set; }
         public Nullable<int> UserId { get; set; }
         public Nullable<int> BookStatusId { get; set; }
-        
         public Nullable<System.DateTime> StartDate { get; set; }
-     
         public Nullable<System.DateTime> EndDate { get; set; }
         public string BorrowerName { get; set; }
-      
         public Nullable<System.DateTime> BorrowDate { get; set; }
     
         public virtual Author Author { get; set; }
+        public virtual BookStatu BookStatu { get; set; }
         public virtual Category Category { get; set; }
         public virtual Reading Reading { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Borrow> Borrows { get; set; }
-        public virtual BookStatu BookStatu { get; set; }
     }
 }

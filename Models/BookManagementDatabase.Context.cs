@@ -30,8 +30,8 @@ namespace BookManagementSystem.Models
         public virtual DbSet<BookStatu> BookStatus { get; set; }
         public virtual DbSet<Borrow> Borrows { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<Reading> Readings { get; set; }
         public virtual DbSet<ReadingList> ReadingLists { get; set; }
+        public virtual DbSet<Reading> Readings { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }
